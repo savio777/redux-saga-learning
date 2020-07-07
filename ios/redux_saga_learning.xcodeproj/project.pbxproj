@@ -46,7 +46,7 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* redux_saga_learningTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = redux_saga_learningTests.m; sourceTree = "<group>"; };
 		0C41D71CA455CC7BFB816857 /* Pods-redux_saga_learning-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-redux_saga_learning-tvOS.release.xcconfig"; path = "Target Support Files/Pods-redux_saga_learning-tvOS/Pods-redux_saga_learning-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* redux_saga_learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = redux_saga_learning.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* redux saga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "redux saga.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = redux_saga_learning/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = redux_saga_learning/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -161,7 +161,6 @@
 				FBE655E6CBBECA295B15266E /* Pods-redux_saga_learning-tvOSTests.debug.xcconfig */,
 				83513580A05CF28D48A43551 /* Pods-redux_saga_learning-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -190,7 +189,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* redux_saga_learning.app */,
+				13B07F961A680F5B00A75B9A /* redux saga.app */,
 				00E356EE1AD99517003FC87E /* redux_saga_learningTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* redux_saga_learning-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* redux_saga_learning-tvOSTests.xctest */,
@@ -237,7 +236,7 @@
 			);
 			name = redux_saga_learning;
 			productName = redux_saga_learning;
-			productReference = 13B07F961A680F5B00A75B9A /* redux_saga_learning.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* redux saga.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2D02E47A1E0B4A5D006451C7 /* redux_saga_learning-tvOS */ = {
@@ -643,7 +642,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = redux_saga_learning;
+				PRODUCT_NAME = "redux saga";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -665,7 +664,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = redux_saga_learning;
+				PRODUCT_NAME = "redux saga";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

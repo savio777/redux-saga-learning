@@ -9,7 +9,7 @@ import Home from './screens/Home';
 
 const Routes = () => (
   <NavigationContainer>
-    <Stack.Navigator initialRouteName="Login">
+    <Stack.Navigator initialRouteName="Login" headerMode="none">
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Home" component={Home} />
     </Stack.Navigator>
