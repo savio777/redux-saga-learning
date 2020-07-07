@@ -21,8 +21,10 @@ function Login({addValue, todos}) {
   }, []);
 
   const clickAdd = () => {
-    addValue(text);
-    setText('');
+    if (text != '') {
+      addValue(text);
+      setText('');
+    }
   };
 
   return (

@@ -1,15 +1,20 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import {connect} from 'react-redux';
 
-export default function Header() {
+function Header({todos}) {
   return (
     <View style={styles.container}>
       <View style={styles.title}>
-        <Text style={styles.textTitle}>last todo: </Text>
+        <Text style={styles.textTitle}>Tarefas: {todos.length}</Text>
       </View>
     </View>
   );
 }
+
+const mapState = (state) => ({todos: state.todos});
+
+export default connect(mapState, null)(Header);
 
 const styles = StyleSheet.create({
   container: {
