@@ -4,3 +4,10 @@ export function addValue(text) {
     text,
   };
 }
+
+export function decreaseValue(index) {
+  return {
+    type: 'DECREASE_TODO',
+    index,
+  };
+}

@@ -13,12 +13,12 @@ import * as todoActions from '../actions/todos';
 import Header from '../components/Header';
 import {connect} from 'react-redux';
 
-function Login({addValue, todos}) {
+function Login({addValue, decreaseValue, todos}) {
   const [text, setText] = useState('');
 
   useEffect(() => {
     console.log('test redux', todos);
-  }, []);
+  }, [todos]);
 
   const clickAdd = () => {
     if (text != '') {
@@ -37,14 +37,22 @@ function Login({addValue, todos}) {
           value={text}
           onChangeText={(text) => setText(text)}
         />
-        <TouchableOpacity style={styles.button} onPress={clickAdd}>
+        <TouchableOpacity style={styles.button} onPress={() => clickAdd()}>
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
 
-        <View>
-          <Text style={styles.title}>Lista:</Text>
-          {todos.length > 0 && todos.map((value) => <Text>{value.text}</Text>)}
-        </View>
+        <Text style={styles.title}>List:</Text>
+        {todos.length > 0 &&
+          todos.map((value, index) => (
+            <View key={value.id} style={styles.todo}>
+              <Text>{value.text}</Text>
+              <TouchableOpacity
+                style={styles.buttonDone}
+                onPress={() => decreaseValue(index)}>
+                <Text style={styles.textDone}>Done</Text>
+              </TouchableOpacity>
+            </View>
+          ))}
       </View>
     </>
   );
@@ -77,5 +85,24 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
     borderRadius: 5,
   },
-  title: {textAlign: 'center', fontWeight: 'bold'},
+  title: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    marginBottom: 15,
+    marginTop: 5,
+  },
+  todo: {
+    flexDirection: 'row',
+    marginVertical: 5,
+    marginLeft: 20,
+  },
+  buttonDone: {
+    marginLeft: 5,
+    width: 50,
+    borderWidth: 1,
+    backgroundColor: '#000',
+    borderRadius: 5,
+    alignItems: 'center',
+  },
+  textDone: {color: '#fff'},
 });

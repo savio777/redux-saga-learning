@@ -6,7 +6,7 @@ function Header({todos}) {
   return (
     <View style={styles.container}>
       <View style={styles.title}>
-        <Text style={styles.textTitle}>Tarefas: {todos.length}</Text>
+        <Text style={styles.textTitle}>ToDos: {todos.length}</Text>
       </View>
     </View>
   );
