@@ -8,21 +8,21 @@ import {
 } from 'react-native';
 
 import {bindActionCreators} from 'redux';
-import * as todoActions from '../actions/todos';
+import * as todoActions from '../actions/user';
 
 import Header from '../components/Header';
 import {connect} from 'react-redux';
 
-function Login({addValue, decreaseValue, todos}) {
+function Login({requestLogin, user}) {
   const [text, setText] = useState('');
 
   useEffect(() => {
-    console.log('test redux', todos);
-  }, [todos]);
+    console.log('test redux', user);
+  }, [user]);
 
-  const clickAdd = () => {
+  const login = () => {
     if (text != '') {
-      addValue(text);
+      requestLogin(text);
       setText('');
     }
   };
@@ -31,34 +31,22 @@ function Login({addValue, decreaseValue, todos}) {
     <>
       <Header />
       <View style={styles.container}>
-        <Text>Login</Text>
         <TextInput
           style={styles.input}
           value={text}
           onChangeText={(text) => setText(text)}
+          autoCapitalize="none"
         />
-        <TouchableOpacity style={styles.button} onPress={() => clickAdd()}>
-          <Text style={styles.buttonText}>+</Text>
+        <TouchableOpacity style={styles.button} onPress={() => login()}>
+          <Text style={styles.buttonText}>logar</Text>
         </TouchableOpacity>
-
-        <Text style={styles.title}>List:</Text>
-        {todos.length > 0 &&
-          todos.map((value, index) => (
-            <View key={value.id} style={styles.todo}>
-              <Text>{value.text}</Text>
-              <TouchableOpacity
-                style={styles.buttonDone}
-                onPress={() => decreaseValue(index)}>
-                <Text style={styles.textDone}>Done</Text>
-              </TouchableOpacity>
-            </View>
-          ))}
+        {user.error != '' && <Text style={styles.textError}>{user.error}</Text>}
       </View>
     </>
   );
 }
 
-const mapState = (state) => ({todos: state.todos});
+const mapState = (state) => ({user: state.user});
 const mapDispatch = (dispatch) => bindActionCreators(todoActions, dispatch);
 
 export default connect(mapState, mapDispatch)(Login);
@@ -67,6 +55,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   button: {
     width: 50,
@@ -105,4 +95,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textDone: {color: '#fff'},
+  textError: {color: '#e81809', marginVertical: 10},
 });

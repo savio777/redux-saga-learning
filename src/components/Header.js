@@ -2,17 +2,19 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {connect} from 'react-redux';
 
-function Header({todos}) {
+function Header({user}) {
   return (
     <View style={styles.container}>
       <View style={styles.title}>
-        <Text style={styles.textTitle}>ToDos: {todos.length}</Text>
+        <Text style={styles.textTitle}>
+          {user.name != '' ? user.name : 'Login'}
+        </Text>
       </View>
     </View>
   );
 }
 
-const mapState = (state) => ({todos: state.todos});
+const mapState = (state) => ({user: state.user});
 
 export default connect(mapState, null)(Header);
 

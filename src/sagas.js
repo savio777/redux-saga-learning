@@ -2,19 +2,18 @@ import {takeEvery, put, delay, all, call} from 'redux-saga/effects';
 import axios from 'axios';
 
 function* asyncAddTodo(action) {
-  console.log('teste async ', action);
-  const response = yield call(
-    axios.get,
-    `https://api.github.com/users/${action.text}`,
-  );
+  try {
+    const response = yield call(
+      axios.get,
+      `https://api.github.com/users/${action.user}`,
+    );
 
-  console.log('teste async', response.data);
-
-  if (response.status == 200) {
-    yield put({type: 'ADD_TODO', payload: {text: response.data.name}});
+    yield put({type: 'CONFIRM_LOGIN', payload: {name: response.data.name}});
+  } catch (error) {
+    yield put({type: 'ERROR_LOGIN', payload: {error: 'Não encontrado'}});
   }
 }
 
 export default function* root() {
-  yield all([takeEvery('ASYNC_ADD_TODO', asyncAddTodo)]);
+  yield all([takeEvery('ASYNC_REQUEST_LOGIN', asyncAddTodo)]);
 }
