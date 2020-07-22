@@ -1,6 +1,6 @@
 export function addValue(text) {
   return {
-    type: 'ADD_TODO',
+    type: 'ASYNC_ADD_TODO',
     text,
   };
 }
