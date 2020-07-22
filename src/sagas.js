@@ -1,10 +1,18 @@
-import {takeEvery, put, delay, all} from 'redux-saga/effects';
+import {takeEvery, put, delay, all, call} from 'redux-saga/effects';
+import axios from 'axios';
 
 function* asyncAddTodo(action) {
-  //setTimeout(() => {}, 2000);
-  yield delay(2000);
   console.log('teste async ', action);
-  yield put({type: 'ADD_TODO', payload: {text: action.text}});
+  const response = yield call(
+    axios.get,
+    `https://api.github.com/users/${action.text}`,
+  );
+
+  console.log('teste async', response.data);
+
+  if (response.status == 200) {
+    yield put({type: 'ADD_TODO', payload: {text: response.data.name}});
+  }
 }
 
 export default function* root() {

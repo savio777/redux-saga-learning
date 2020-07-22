@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "redux_saga_learning.app"
+               BuildableName = "redux saga.app"
                BlueprintName = "redux_saga_learning"
                ReferencedContainer = "container:redux_saga_learning.xcodeproj">
             </BuildableReference>
@@ -55,7 +55,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "redux_saga_learning.app"
+            BuildableName = "redux saga.app"
             BlueprintName = "redux_saga_learning"
             ReferencedContainer = "container:redux_saga_learning.xcodeproj">
          </BuildableReference>
@@ -72,7 +72,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "redux_saga_learning.app"
+            BuildableName = "redux saga.app"
             BlueprintName = "redux_saga_learning"
             ReferencedContainer = "container:redux_saga_learning.xcodeproj">
          </BuildableReference>
