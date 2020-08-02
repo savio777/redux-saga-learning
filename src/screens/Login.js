@@ -33,6 +33,11 @@ function Login({user, requestLogin, logout}) {
         <Image source={logo} style={styles.img} />
       </View>
       <View style={styles.container}>
+        {user.loading && (
+          <Text style={{textAlign: 'center', marginVertical: 20}}>
+            Animação Carregando
+          </Text>
+        )}
         {!user.logado ? (
           <>
             <TextInput

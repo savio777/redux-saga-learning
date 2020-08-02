@@ -1,4 +1,12 @@
-import {takeEvery, put, delay, all, call, select} from 'redux-saga/effects';
+import {
+  takeEvery,
+  takeLatest,
+  put,
+  delay,
+  all,
+  call,
+  select,
+} from 'redux-saga/effects';
 import axios from 'axios';
 
 function* login(action) {
@@ -33,7 +41,7 @@ function* logout(action) {
 
 export default function* root() {
   yield all([
-    takeEvery('ASYNC_REQUEST_LOGIN', login),
+    takeLatest('ASYNC_REQUEST_LOGIN', login),
     takeEvery('LOGOUT_ACTION', logout),
   ]);
 }
