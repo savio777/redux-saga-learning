@@ -5,15 +5,16 @@ import {
   TouchableOpacity,
   StyleSheet,
   TextInput,
+  Image,
 } from 'react-native';
 
+import Header from '../components/Header';
+import logo from '../assets/github-mark.png';
 import {bindActionCreators} from 'redux';
 import * as todoActions from '../actions/user';
-
-import Header from '../components/Header';
 import {connect} from 'react-redux';
 
-function Login({requestLogin, user}) {
+function Login({user, requestLogin, logout}) {
   const [text, setText] = useState('');
 
   useEffect(() => {
@@ -21,28 +22,44 @@ function Login({requestLogin, user}) {
   }, [user]);
 
   const login = () => {
-    if (text != '') {
-      requestLogin(text);
-      setText('');
-    }
+    requestLogin(text);
+    setText('');
   };
 
   return (
-    <>
+    <View style={{backgroundColor: '#fff', flex: 1}}>
       <Header />
+      <View style={styles.containerImg}>
+        <Image source={logo} style={styles.img} />
+      </View>
       <View style={styles.container}>
-        <TextInput
-          style={styles.input}
-          value={text}
-          onChangeText={(text) => setText(text)}
-          autoCapitalize="none"
-        />
-        <TouchableOpacity style={styles.button} onPress={() => login()}>
-          <Text style={styles.buttonText}>logar</Text>
-        </TouchableOpacity>
+        {!user.logado ? (
+          <>
+            <TextInput
+              style={styles.input}
+              value={text}
+              onChangeText={(text) => setText(text)}
+              autoCapitalize="none"
+              placeholder="Seu usário"
+              placeholderTextColor="#9e9e9e"
+            />
+            <TouchableOpacity style={styles.button} onPress={() => login()}>
+              <Text style={styles.buttonText}>Login</Text>
+            </TouchableOpacity>
+          </>
+        ) : (
+          <>
+            <Text style={{marginBottom: 10}}>
+              Deseja continua como {user.user}?
+            </Text>
+            <TouchableOpacity style={styles.button} onPress={() => logout()}>
+              <Text style={styles.buttonText}>Mudar</Text>
+            </TouchableOpacity>
+          </>
+        )}
         {user.error != '' && <Text style={styles.textError}>{user.error}</Text>}
       </View>
-    </>
+    </View>
   );
 }
 
@@ -59,11 +76,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   button: {
-    width: 50,
+    width: 70,
     borderWidth: 1,
     borderColor: '#000',
     borderRadius: 5,
     alignItems: 'center',
+    paddingHorizontal: 10,
+    marginBottom: 10,
   },
   buttonText: {
     color: '#000',
@@ -74,6 +93,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 5,
+    paddingHorizontal: 5,
+    textAlign: 'center',
   },
   title: {
     textAlign: 'center',
@@ -96,4 +117,6 @@ const styles = StyleSheet.create({
   },
   textDone: {color: '#fff'},
   textError: {color: '#e81809', marginVertical: 10},
+  containerImg: {alignItems: 'center', marginVertical: 20},
+  img: {width: 50, height: 50},
 });

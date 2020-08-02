@@ -7,7 +7,7 @@ function Header({user}) {
     <View style={styles.container}>
       <View style={styles.title}>
         <Text style={styles.textTitle}>
-          {user.name != '' ? user.name : 'Login'}
+          {user.logado ? user.name : 'Login'}
         </Text>
       </View>
     </View>
