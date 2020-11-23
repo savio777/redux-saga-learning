@@ -5,7 +5,8 @@
 > minuto 48:38 da aula async com redux saga
 - [x] mais funções na tela de login
 - [ ] implementar o reducer todo com o select dos effects do saga
-- [ ] lista de pessoas que está seguindo
+- [ ] listar repositorios
+- [ ] listar de pessoas que está seguindo
 
 ## branchs:
 - master (principal)
