@@ -7,6 +7,7 @@
 - [ ] implementar o reducer todo com o select dos effects do saga
 - [ ] listar repositorios
 - [ ] listar de pessoas que está seguindo
+- [ ] persist
 
 ## branchs:
 - master (principal)
