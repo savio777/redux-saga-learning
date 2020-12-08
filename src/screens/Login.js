@@ -43,7 +43,7 @@ function Login({user, requestLogin, logout}) {
             <TextInput
               style={styles.input}
               value={text}
-              onChangeText={(text) => setText(text)}
+              onChangeText={(value) => setText(value)}
               autoCapitalize="none"
               placeholder="Seu usário"
               placeholderTextColor="#9e9e9e"
@@ -62,7 +62,9 @@ function Login({user, requestLogin, logout}) {
             </TouchableOpacity>
           </>
         )}
-        {user.error != '' && <Text style={styles.textError}>{user.error}</Text>}
+        {user.error !== '' && (
+          <Text style={styles.textError}>{user.error}</Text>
+        )}
       </View>
     </View>
   );
@@ -84,9 +86,9 @@ const styles = StyleSheet.create({
     width: 70,
     borderWidth: 1,
     borderColor: '#000',
-    borderRadius: 5,
+    borderRadius: 8,
     alignItems: 'center',
-    paddingHorizontal: 10,
+    padding: 5,
     marginBottom: 10,
   },
   buttonText: {
@@ -94,7 +96,7 @@ const styles = StyleSheet.create({
   },
   input: {
     marginVertical: 20,
-    width: 100,
+    width: '40%',
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 5,

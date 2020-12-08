@@ -20,7 +20,6 @@ export default connect(mapState, null)(Header);
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 20,
     height: 40,
     width: '100%',
     borderBottomWidth: 1,
