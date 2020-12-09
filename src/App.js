@@ -8,8 +8,9 @@ import {store, persistor} from './store';
 export default function App() {
   return (
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor} />
-      <Routes />
+      <PersistGate persistor={persistor} loading={null}>
+        <Routes />
+      </PersistGate>
     </Provider>
   );
 }
